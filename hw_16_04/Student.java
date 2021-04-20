@@ -1,4 +1,4 @@
-package com.sql_calendar.resources;
+package hw_16_04;
 import java.io.Serializable;
 
 /**

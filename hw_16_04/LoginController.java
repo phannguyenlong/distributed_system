@@ -1,5 +1,4 @@
-package com.sql_calendar.controller;
-
+package hw_16_04;
 import java.net.*;
 import java.io.*;
 import java.util.ResourceBundle;
@@ -11,8 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-
-import com.sql_calendar.resources.Student;
 
 /**
  * Controller for Log in Action

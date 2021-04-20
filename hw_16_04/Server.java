@@ -1,10 +1,10 @@
+package hw_16_04;
+
 import java.net.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import com.sql_calendar.resources.Student;
 
 import java.io.*;
 
