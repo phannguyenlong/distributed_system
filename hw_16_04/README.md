@@ -1,13 +1,18 @@
 ## Requierment
 - We need to build 2 application
-    - Client: Ask the server data in the advertising of csv
-    - Server: Containt advertise.csv
+    - Client: a java UI send Object to server
+    - Server
 
 ### Client
-- Can connect to server ask see the data of advertising.csv
-- Then can input more data input advertising.csv
+- Create Java UI with 4 input fied
+    - Age
+    - Name
+    - Gender
+    - ID
+- Put 4 value into the Student Object
+- Send the Object to Server
 
 ### Server
-- Has permission to read and write advertising.csv
-- Wait a client connect and send back data in advertising.csv to client
-- Wait for client input to update advertising.csv
+- Host a server connect with the Database
+- Recieve the Student Object from Client
+- Store the information in the database
