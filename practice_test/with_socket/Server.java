@@ -1,24 +1,25 @@
 package practice_test.with_socket;
 
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
-import java.rmi.server.UnicastRemoteObject;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Server {
     public static void main(String[] args) {
-        // create an Instance of Server Service implementation
-        ServerImp obj = new ServerImp();
-        // Create an stub to store in RMI server
+        int port = 9999;
+        ServerSocket socket = null;
+        System.out.println("Server is running on port " + port);
         try {
-            ServerService stub = (ServerService) UnicastRemoteObject.exportObject(obj, 1099);
+            socket = new ServerSocket(port);
+            ServerImp obj = new ServerImp();
+            while (true) {
+                Socket client = socket.accept();
 
-            //  Register stub to RMI server
-            Registry registry = LocateRegistry.createRegistry(1099);
-            registry.bind("ServerService", stub); // ServerSevice will be the name in RMI server when client will lookup
-            
-            System.out.println("Sever ready");
+                Thread t = new Thread(new ServerThread(obj, client));
+                t.start();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 }

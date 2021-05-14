@@ -4,6 +4,7 @@ public class Game {
     private String[][] match = { { "     ", "     ", "     " }, { "     ", "     ", "     " }, { "     ", "     ", "     " } };
     private String nextPlayer = "X";
     private String winner = null;
+    private int numberOfMove = 0;
 
     public Game() {
     }
@@ -37,10 +38,13 @@ public class Game {
             nextPlayer = "X";
 
         System.out.println(nextPlayer);
+        numberOfMove++;
         return true;
     }
 
     public String checkWin() {
+        if (numberOfMove == 9)
+            return "draw";
         return winner;
     }
 

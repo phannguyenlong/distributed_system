@@ -1,5 +1,6 @@
 package practice_test.with_socket;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ServerImp implements ServerService {
+public class ServerImp implements ServerService, Serializable {
     private Game game;
     private int numerOfClient = 0;
     private int clientNumber;
