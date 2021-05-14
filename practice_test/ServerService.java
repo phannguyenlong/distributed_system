@@ -11,4 +11,7 @@ public interface ServerService extends Remote {
     public String display() throws RemoteException;
 
     public String getClientToken() throws RemoteException;
+
+    public boolean authentication(String username, String password) throws RemoteException;
+    public boolean createNewAccount(String username, String password) throws RemoteException;
 }

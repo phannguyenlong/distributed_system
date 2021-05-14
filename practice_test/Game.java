@@ -26,7 +26,6 @@ public class Game {
         if (match[1][y-1].equals(input) && match[1][y-1].equals(input) && match[2][y-1].equals(input)) // check y column
             winner = player;
         if (x == y || x == (3 - y)) { // check diagonal
-            System.out.println("RUn this");
             if (match[0][0].equals(input) && match[2][2].equals(input))
                 winner = player;
             if (match[0][2].equals(input) && match[2][0].equals(input))

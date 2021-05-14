@@ -15,7 +15,12 @@ CREATE TABLE newspaper (
     type VARCHAR(50)
 );
 
-INSERT INTO student (name, id, year, gender) VALUE ('aaa', 'bbb', '2000', 'female');
+CREATE TABLE login (
+	username VARCHAR(50),
+    password VARCHAR(50)
+);
 
-select * from student;
+INSERT INTO login (name, password) VALUE ('long', 'long');
+
+select * from newspaper;
 

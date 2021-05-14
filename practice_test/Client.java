@@ -11,6 +11,26 @@ public class Client {
             Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
             ServerService stub = (ServerService) registry.lookup("ServerService"); // same name when server register to RMI server
 
+            System.out.print("Input username: ");
+            String username = scanner.nextLine();
+            System.out.print("Input password: ");
+            String password = scanner.nextLine();
+            if (!stub.authentication(username, password)) {
+                System.out.println("you dont have account");
+                
+                System.out.println("=========Createing new account=========");
+                System.out.print("Input username: ");
+                String user = scanner.nextLine();
+                System.out.print("Input password: ");
+                String pass = scanner.nextLine();
+                if (!stub.createNewAccount(user, pass)) {
+                    System.out.println("Account exist. Try again");
+                }
+                System.out.println("Account created. Please login again");
+                scanner.close();
+                return;
+            }
+
             String clientSymbol = stub.getClientToken();
             System.out.println(clientSymbol);
             
