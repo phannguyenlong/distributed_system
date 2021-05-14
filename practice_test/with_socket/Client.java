@@ -1,4 +1,4 @@
-package practice_test;
+package practice_test.with_socket;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -45,10 +45,7 @@ public class Client {
 
                 System.out.println(stub.display());
             }
-            if (stub.isWin().equals("draw"))
-                System.out.println("Game over. Draw");
-            else
-                System.out.println("Game Over. Player " + stub.isWin() + " win!" );
+            System.out.println("Game Over. Player " + stub.isWin() + " win!" );
 
             scanner.close();
         } catch (Exception e) {
