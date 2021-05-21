@@ -48,7 +48,9 @@ public class LoginServlet extends HttpServlet {
             resp.addCookie(new Cookie("isLogin", "true"));
             resp.sendRedirect(req.getContextPath() + "/calculator.html");
         } else {
-            resp.sendRedirect(req.getContextPath() + "/index.html");
+            // resp.sendRedirect(req.getContextPath() + "/index.html");
+            req.setAttribute("message", "Wrong username and password");
+            req.getRequestDispatcher("login.jsp").forward(req, resp);
         }
     }
 }
