@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+    <book category="cooking">
+        <title lang="en">Everyday Intalian</title>
+        <author>Phan Nguyen Long</author>
+        <year>2005</year>
+        <price>3000</price>
+    </book>
+    <book category="chilren">
+        <title lang="en">Harrry Pot Peo</title>
+        <author>Tran Minh Nguyen</author>
+        <year>2006</year>
+        <price>30</price>
+    </book>
+    <book category="romance">
+        <title lang="en">Broke up</title>
+        <author>Vo Thanh Minh Khoi</author>
+        <year>2021</year>
+        <price>200</price>
+    </book>
+</bookstore>
