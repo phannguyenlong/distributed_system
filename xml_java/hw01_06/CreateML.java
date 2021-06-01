@@ -65,8 +65,8 @@ public class CreateML {
             transformer.transform(source, consolResult);
 
             // or write result to file
-            // StreamResult fileResult = new StreamResult(new File("xml_java/user.xml"));
-            // transformer.transform(source, fileResult);
+            StreamResult fileResult = new StreamResult(new File("xml_java/hw01_06/books.xml"));
+            transformer.transform(source, fileResult);
             
             System.out.println();
         } catch (Exception e) {
