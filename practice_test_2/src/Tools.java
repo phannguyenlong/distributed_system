@@ -101,31 +101,34 @@ public class Tools {
         String host = "127.0.0.1";
         int port = 8888;
 
-        // Connection databaseConnect = connectToDatabase("guest", "password");
         Socket socket = null;
         try {
+            // connect to other server
             socket = new Socket(host, port);
             DataInputStream in = new DataInputStream(socket.getInputStream());
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-            out.writeUTF("server");
+            out.writeUTF("server"); // set connect mode to server
 
+            // get data from DB
             PreparedStatement st = databaseConnect.prepareStatement("select * from student");
             ResultSet res = st.executeQuery();
-
             List<Student> students = new ArrayList<>();
             while (res.next()) {
                 students.add(new Student(res.getInt("id"), res.getFloat("grade"), res.getString("name")));
             }
 
+            // sending data over socket
             System.out.println("Sending data...");
             String xml = Tools.Object2XML(students);
             out.writeUTF(xml);
 
+            // reciever data from another server
             System.out.println("Recieving data...");
             xml = in.readUTF();
             List<Student> socket_student = Tools.xml2Object(xml);
 
+            // compare 2 list of data and adding
             System.out.println("Processing...");
             for (Student std : socket_student) {
                 boolean isHasStd = false;
@@ -158,6 +161,7 @@ public class Tools {
     }
     
     public static void handleSynchornize(Socket socket, DataInputStream in, DataOutputStream out, Connection databaseConnect, String serverName) throws Exception {
+        // recieving data form other server
         System.out.println("Recieving data...");
         String xml = in.readUTF();
 
@@ -171,10 +175,12 @@ public class Tools {
             db_student.add(new Student(res.getInt("id"), res.getFloat("grade"), res.getString("name")));
         }
 
+        // sending data over socket
         System.out.println("Sending data...");
         xml = Tools.Object2XML(db_student);
         out.writeUTF(xml); // write back data
         
+        // compare 2 list of data and adding which dont have
         System.out.println("Processing...");
         for (Student std : students) {
             boolean isHasStd = false;
@@ -193,5 +199,7 @@ public class Tools {
                 st.executeUpdate();
             }
         }
+
+        System.out.println("Synchornize done");
     }
 }

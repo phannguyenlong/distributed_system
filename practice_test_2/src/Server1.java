@@ -41,12 +41,10 @@ public class Server1 {
                         Connection databaseConnect = connectToDatabase("guest", "password");
                         Tools.synchornize(databaseConnect, "server 1");
                         out.writeUTF("synchornized done");
-                    } else {
-                        Connection databaseConnect = connectToDatabase("guest", "password");
-                        Tools.handleSynchornize(client, in, out, databaseConnect, "server 1");
-                    }
+                    } 
                 } else {
-
+                    Connection databaseConnect = connectToDatabase("guest", "password");
+                    Tools.handleSynchornize(client, in, out, databaseConnect, "server 1");
                 }
 
                 in.close();
