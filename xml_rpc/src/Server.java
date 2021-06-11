@@ -17,8 +17,9 @@ public class Server {
     public static void main(String[] args) {
         int port = 9999;
         try {
+            // make a webserver on port 9999
             WebServer webServer = new WebServer(port);
-            webServer.addHandler("server", new Server());
+            webServer.addHandler("server", new Server()); // register with RMI server with name "server"
             webServer.start();
 
             System.out.println("Server running on port " + port);

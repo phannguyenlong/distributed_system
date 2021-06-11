@@ -8,7 +8,7 @@ public class Client {
     public static void main(String[] args) {
         String[] options = { "sum", "minus", "devide", "multiply" };
         try {
-            XmlRpcClient server = new XmlRpcClient("http://localhost:9999");
+            XmlRpcClient server = new XmlRpcClient("http://localhost:9999"); // connect to webserver on port 9999
             Scanner scanner = new Scanner(System.in);
 
             String option = "";
@@ -27,8 +27,8 @@ public class Client {
                 params.addElement(x);
                 params.addElement(y);
 
-                // call function on server
-                int res = (Integer) server.execute("server." + options[Integer.parseInt(option) - 1], params);
+                // call function on server (which is "register_name".function_name)
+                int res = (Integer) server.execute("server." + options[Integer.parseInt(option) - 1], params); // return Object => cast to Integer
                 System.out.println("Result is: " + res);
             }
             
