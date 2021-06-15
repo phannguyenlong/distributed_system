@@ -1,5 +1,6 @@
 package hw1;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +42,15 @@ public class CreateJSON {
         jo.put("addresses", addressArr);
 
         System.out.println(jo.toJSONString());
+        
+        // write to file
+        // write to File
+        try {
+            PrintWriter printwWriter = new PrintWriter("src/hw1/customer.json");
+            printwWriter.write(jo.toJSONString());
+            printwWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }    
 }
