@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class Server {
-    public static void JSON2Object(String json) {
+    public static Book JSON2Object(String json) {
         try {
             Object obj = new JSONParser().parse(json);
             JSONObject jo = (JSONObject) obj;
@@ -32,11 +32,13 @@ public class Server {
             Author author = new Author(name, age);
             //create book
             Book book = new Book(title, publisher, author);
-            System.out.println(book);
+
+            return book;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
     public static void main(String[] args) {
         int port = 9999;
@@ -56,7 +58,8 @@ public class Server {
                 out.writeUTF("hello");
                 String json = in.readUTF();
                 System.out.println(json);
-                JSON2Object(json);
+                Book book = JSON2Object(json);
+                System.out.println(book);
             }
 
         } catch (Exception e) {
