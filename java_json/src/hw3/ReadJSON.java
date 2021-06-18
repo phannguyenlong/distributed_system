@@ -12,7 +12,7 @@ public class ReadJSON {
     public static void main(String[] args) {
         try {
             // read file to Object
-            Object obj = new JSONParser().parse(new FileReader("src/hw2/customer.json"));
+            Object obj = new JSONParser().parse(new FileReader("src/hw3/customer.json"));
             // covert Object to Json
             JSONObject jo = (JSONObject) obj;
 
