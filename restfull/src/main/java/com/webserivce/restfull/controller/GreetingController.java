@@ -1,4 +1,4 @@
-package com.webserivce.restfull;
+package com.webserivce.restfull.controller;
 
 import com.webserivce.restfull.resources.Greeting;
 
